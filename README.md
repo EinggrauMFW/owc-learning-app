@@ -10,7 +10,7 @@ It is **not** the paper's model. In the paper c, a and Qe come from a 3D potenti
 
     python -m venv .venv
     .venv\Scripts\python -m pip install -r requirements.txt   # exact versions, Python 3.13
-    .venv\Scripts\python -m pytest -q                         # 34 tests, no browser, no network
+    .venv\Scripts\python -m pytest -q                         # 66 tests, no browser, no network
     .venv\Scripts\python run_demo.py                          # prints key numbers, saves owc_toy_demo.png
     .venv\Scripts\python -m streamlit run app.py              # interactive app (local only)
     .venv\Scripts\python run_demo.py exports\run_...\run.json # rebuild a figure from an exported run.json
@@ -24,7 +24,7 @@ It is **not** the paper's model. In the paper c, a and Qe come from a 3D potenti
 | `run_demo.py` | `make_figure` (used by the app and the export) and the command-line demo. |
 | `app.py` | Streamlit UI. Reads all defaults and ranges from `config/defaults.json`. |
 | `config/defaults.json` | every default, range, unit and tooltip. Defaults equal `owc_toy.Params()`. |
-| `tests/` | `test_owc_toy.py` (original 10), `test_app.py` (backend contract, config anchors, bisection, validity masks, run.json round trip, pint dimensions, exercises, export, app smoke test). |
+| `tests/` | 66 tests: `test_owc_toy.py` (original 10), `test_app.py` (backend contract, config anchors, bisection, validity masks, run.json round trip, pint dimensions, exercises, export, app smoke tests), `test_zheng.py` (verification ladder of the wall model), `test_physics.py` (SymPy derivations, time-domain check, long-wave limit), `test_sea.py` (spectra and annual energy). |
 
 Export writes `exports/run_<date-time>/` (curves.csv and sweep.csv with units in the header, figure.png, figure.svg, run.json). Exercise predictions are stored only in `predictions.json` in this folder. Both are git-ignored.
 
