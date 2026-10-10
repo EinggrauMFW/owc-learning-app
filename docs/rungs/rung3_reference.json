@@ -1,0 +1,14 @@
+{
+  "source": "Martins-Rivas & Mei (2009a), thin-walled OWC on a straight coast, as replotted in Zheng et al. (2019) J. Fluid Mech. 878:445-480, Fig. 4 (accepted manuscript, TU Delft repository). Values read by eye from a 4x render; error about +-0.1 in value, +-0.02 in kh.",
+  "case": {"R_over_h": 0.5, "wall_over_h": 0.01, "d_over_h": 0.2, "note": "the figure's own lines use Ri/h = 0.49; the circles are Ri = R"},
+  "scaling": "(cbar, abar) = (c, a) * omega * rho / R",
+  "points": [
+    {"q": "c", "kh": 1.72, "value": 7.89, "label": "c main peak"},
+    {"q": "c", "kh": 4.05, "value": 12.7, "label": "c sloshing spike"},
+    {"q": "a", "kh": 1.36, "value": 3.13, "label": "a maximum"},
+    {"q": "a", "kh": 2.32, "value": -5.31, "label": "a minimum"},
+    {"q": "a", "kh": 4.00, "value": 4.53, "label": "a spike maximum"},
+    {"q": "a", "kh": 4.19, "value": -8.24, "label": "a spike minimum"},
+    {"q": "a", "kh": 7.00, "value": -3.24, "label": "a at kh 7"}
+  ]
+}

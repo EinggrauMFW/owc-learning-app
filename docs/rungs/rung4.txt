@@ -1,0 +1,47 @@
+== Qbar peaks on [0.5, 6.5] (150-pt grid + 31 fine pts in [4.6,5.2], refined)
+  kh=1.7420 Qbar=2.68650
+  kh=4.8292 Qbar=1.76911
+== PTO resonances a + aPTO = 0
+  kh=1.8613 |f| at root=2.26e-08 (bracket |f| sum 3.79e-01)
+  kh=2.9107 |f| at root=3.21e-09 (bracket |f| sum 3.70e-02)
+  kh=4.8324 |f| at root=3.06e-07 (bracket |f| sum 5.04e+00)
+  kh=4.8914 |f| at root=9.83e-09 (bracket |f| sum 1.33e-01)
+== eta (optimal cPTO) on 1.6<kh<3.1 (31 pts)
+  min=1.7738 at kh=1.600; max=2.2264 at kh=2.900
+  peak cbar in [1.2,2.6]: kh=1.7888 cbar=3.4030
+  max eta on [4.6,5.2]: 3.2105 at kh=4.8314
+== R/h sweep, (R-Ri)/h=0.1, d/h=0.2, beta=pi/2 (70-pt grid 0.3..6.5 + fine 4.6..5.2)
+  R/h     res1     res2     dkh    eta1    eta2
+  0.3   2.5248   3.7564  1.2316   2.059   2.116   all roots: [2.525, 3.756]
+  0.4   2.1276   3.3345  1.2069   2.096   2.173   all roots: [2.128, 3.334]
+  0.5   1.8613   2.9107  1.0494   2.135   2.227   all roots: [1.861, 2.911, 4.832, 4.891]
+  0.6   1.6689   2.5050  0.8360   2.178   2.292   all roots: [1.669, 2.505, 3.985, 4.085]
+  0.7   1.5265   2.1354  0.6089   2.223   2.358   all roots: [1.526, 2.135, 3.436, 3.559]
+== V0 = pi Ri^2 h (default geometry)
+
+##### Run was cut short by CPU starvation after the V0 header; the targeted re-run below (zheng_checks.py rung4b) completes it and gives the summary table.
+Qbar peaks: kh=1.7420 (2.6865), kh=4.8292 (1.7691)
+PTO resonances: [1.8613 2.9107 4.8324]
+eta [1.6,3.1] (16 pts): min=1.7738 at 1.60, max=2.2264 at 2.90
+peak cbar: kh=1.7888 cbar=3.4030
+max eta on [4.6,5.2]: 3.2105 at kh=4.8314
+R/h=0.3 roots 2.5248 3.7564 dkh=1.2316; R/h=0.7 roots 1.5265 2.1354 dkh=0.6089
+== V0 = pi Ri^2 h (default geometry)
+  resonances: [1.8283 3.5526 4.831 ]  baseline: [1.8613 2.9107 4.8324]  shift: [-0.033   0.6418 -0.0014]
+  eta [1.6,3.1]: min=1.5500 max=2.1230 (baseline 1.7738, 2.2264)
+
+== SUMMARY: feature | paper | this solver | difference
+Qe peak 1 (kh)             |   1.73 |     1.7420 | +0.0120
+Qe peak 2 (kh)             |   4.82 |     4.8292 | +0.0092
+PTO res (kh) near 1.86     |   1.86 |     1.8613 | +0.0013
+PTO res (kh) near 2.9      |    2.9 |     2.9107 | +0.0107
+PTO res (kh) near 4.9      |    4.9 |     4.8324 | -0.0676
+eta min [1.6,3.1]          |    2.0 |     1.7738 | -0.2262
+eta max [1.6,3.1]          |    2.3 |     2.2264 | -0.0736
+peak cbar                  |    3.3 |     3.4030 | +0.1030
+peak cbar (kh)             |    1.8 |     1.7888 | -0.0112
+eta max [4.6,5.2]          |    2.9 |     3.2105 | +0.3105
+dkh R/h=0.3                |   1.19 |     1.2316 | +0.0416
+dkh R/h=0.7                |   0.56 |     0.6089 | +0.0489
+
+rung4b time 66 s

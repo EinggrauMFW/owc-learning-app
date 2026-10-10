@@ -1,0 +1,7 @@
+__pycache__/
+.venv/
+exports/
+predictions.json
+.pytest_cache/
+cache/
+docs/literature/raw/

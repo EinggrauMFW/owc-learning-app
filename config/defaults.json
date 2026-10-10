@@ -1,0 +1,138 @@
+{
+  "_note": "Every default and range used by the app. Units SI. Defaults must equal owc_toy.Params() (regression anchors in README).",
+  "params": {
+    "A":     {"default": 1.0,    "min": 0.25,  "max": 3.0,   "step": 0.05,  "unit": "m",      "label": "wave amplitude A",          "tip": "Regular-wave amplitude (half the wave height). Power scales with A^2."},
+    "h":     {"default": 10.0,   "min": 5.0,   "max": 50.0,  "step": 0.5,   "unit": "m",      "label": "water depth h",             "tip": "Sets k through the dispersion relation w^2 = g k tanh(k h)."},
+    "r_in":  {"default": 4.0,    "min": 1.0,   "max": 10.0,  "step": 0.1,   "unit": "m",      "label": "inner chamber radius r_in", "tip": "Water-plane area S = pi r_in^2. The piston idea needs k r_in below about 1."},
+    "L":     {"default": 4.2,    "min": 1.0,   "max": 10.0,  "step": 0.1,   "unit": "m",      "label": "effective column length L", "tip": "Includes added mass. Sets the natural frequency sqrt(g / L); it does not depend on r_in in this toy."},
+    "zeta":  {"default": 0.3,    "min": 0.05,  "max": 1.0,   "step": 0.01,  "unit": "-",      "label": "damping ratio zeta",        "tip": "Toy radiation damping of the piston, constant with frequency (a toy choice, not physics)."},
+    "H_air": {"default": 5.0,    "min": 0.5,   "max": 20.0,  "step": 0.1,   "unit": "m",      "label": "air-chamber height H_air",  "tip": "V0 = S H_air. Larger V0 means larger aPTO (air spring); above a threshold the PTO resonance disappears."},
+    "rho":   {"default": 1025.0, "min": 1000.0,"max": 1030.0,"step": 1.0,   "unit": "kg/m^3", "label": "water density rho",         "tip": "Seawater about 1025 kg/m^3, fresh water 1000 kg/m^3."},
+    "rho0":  {"default": 1.2,    "min": 1.0,   "max": 1.3,   "step": 0.01,  "unit": "kg/m^3", "label": "air density rho0",          "tip": "Enters aPTO = w V0 / (v^2 rho0). 1.2 kg/m^3 is the author's choice, not a paper value."},
+    "v":     {"default": 340.0,  "min": 330.0, "max": 350.0, "step": 1.0,   "unit": "m/s",    "label": "speed of sound in air v",   "tip": "Enters aPTO = w V0 / (v^2 rho0). 340 m/s as in Zheng et al. (2019)."}
+  },
+  "damping": {"default": "constant", "options": {"constant": "constant zeta (toy)", "froude_krylov": "frequency-dependent B(w): Froude-Krylov + Haskind"}, "tip": "Constant: B = 2 zeta sqrt(K m), the toy (regression anchors). Frequency-dependent: B(w) = k rho g S^2 (2 J1(k r_in)/(k r_in))^2 / (4 cg), an estimate that gives the physical w^3 long-wave scaling of c; zeta is then not used."},
+  "T":       {"default": 3.815,  "min": 2.0,   "max": 14.0,  "step": 0.005, "unit": "s",      "label": "wave period T (regular waves)", "tip": "Period of the regular wave, T = 2 pi / w. Not Te, Tp, Tm01 or Tm02: those belong to irregular seas. Default = PTO resonance for the default inputs."},
+  "c_pto": {"mode": "optimal", "fixed_default": "c at PTO resonance", "log10_min": -4.0, "log10_max": 0.0, "log10_step": 0.01, "unit": "m^3/s/Pa",
+            "tip": "Turbine conductance. 'optimal' retunes it at every frequency (paper Eq. 39 form): an upper bound, a real turbine cannot do this."},
+  "grid": {"w_min": 0.6, "w_max": 2.4, "n": 1500, "unit": "rad/s", "_note": "same grid as run_demo.py"},
+  "c_pto_sweep": {"min": 1e-3, "max": 0.3, "n": 600, "unit": "m^3/s/Pa", "_note": "same sweep as run_demo.py panel (c)"},
+  "zheng": {
+    "params": {
+      "R_over_h": {
+        "default": 0.5,
+        "min": 0.3,
+        "max": 0.7,
+        "step": 0.01,
+        "unit": "-",
+        "label": "outer radius R / h",
+        "tip": "Outer radius over depth."
+      },
+      "wall_over_h": {
+        "default": 0.1,
+        "min": 0.01,
+        "max": 0.2,
+        "step": 0.01,
+        "unit": "-",
+        "label": "wall thickness (R - Ri) / h",
+        "tip": "Chamber wall thickness over depth."
+      },
+      "d_over_h": {
+        "default": 0.2,
+        "min": 0.02,
+        "max": 0.4,
+        "step": 0.01,
+        "unit": "-",
+        "label": "chamber draft d / h",
+        "tip": "Submergence of the chamber wall over depth."
+      },
+      "beta_deg": {
+        "default": 90,
+        "min": 0,
+        "max": 90,
+        "step": 1,
+        "unit": "deg",
+        "label": "incident direction beta",
+        "tip": "Incident wave direction; 90 deg is normal to the wall."
+      },
+      "h": {
+        "default": 10.0,
+        "min": 5.0,
+        "max": 50.0,
+        "step": 0.5,
+        "unit": "m",
+        "label": "water depth h",
+        "tip": "Water depth."
+      },
+      "A": {
+        "default": 1.0,
+        "min": 0.25,
+        "max": 3.0,
+        "step": 0.05,
+        "unit": "m",
+        "label": "wave amplitude A",
+        "tip": "Regular-wave amplitude."
+      },
+      "M": {
+        "default": 12,
+        "min": 6,
+        "max": 24,
+        "step": 1,
+        "unit": "-",
+        "label": "circumferential truncation M",
+        "tip": "Number of circumferential modes kept."
+      },
+      "L": {
+        "default": 20,
+        "min": 10,
+        "max": 40,
+        "step": 1,
+        "unit": "-",
+        "label": "vertical truncation L",
+        "tip": "Number of evanescent vertical modes kept."
+      },
+      "rho": {
+        "default": 1025.0,
+        "min": 1000.0,
+        "max": 1030.0,
+        "step": 1.0,
+        "unit": "kg/m^3",
+        "label": "water density rho",
+        "tip": "Water density."
+      },
+      "rho0": {
+        "default": 1.025,
+        "min": 1.0,
+        "max": 1.3,
+        "step": 0.005,
+        "unit": "kg/m^3",
+        "label": "air density rho0",
+        "tip": "Air density; rho/rho0 = 1000 as in the paper."
+      },
+      "v": {
+        "default": 340.0,
+        "min": 330.0,
+        "max": 350.0,
+        "step": 1.0,
+        "unit": "m/s",
+        "label": "speed of sound in air v",
+        "tip": "Speed of sound in air."
+      }
+    },
+    "V0_uses": {
+      "default": "R",
+      "options": [
+        "R",
+        "Ri"
+      ]
+    },
+    "grid": {
+      "kh_min": 0.05,
+      "kh_max": 7.0,
+      "n": 200,
+      "n_min": 20,
+      "n_max": 400
+    },
+    "consistency_n": 40
+  }
+}
