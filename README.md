@@ -89,4 +89,4 @@ The sidebar's **Damping model** switches the toy to the frequency-dependent B(w)
 
 ## Licence and data
 
-The code and documentation are under the [MIT licence](LICENSE). The Sipora wave table in `data/` is derived from ERA5 (Copernicus Climate Change Service, CC BY 4.0). Its attribution and the modifications made are in [data/README.md](data/README.md). Papers are cited, not included. Requires Python 3.13; exact package versions are in `requirements.txt`.
+The code and documentation are under the [MIT licence](LICENSE). The Sipora wave table in `data/` is derived from ERA5 (Copernicus Climate Change Service, CC BY 4.0). Its attribution and the modifications made are in [data/README.md](data/README.md). Papers are cited, not included; see [NOTICE](NOTICE). Requires Python 3.13; exact package versions are in `requirements.txt`.

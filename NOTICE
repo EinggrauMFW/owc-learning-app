@@ -1,0 +1,9 @@
+Third-party material in this repository
+
+The MIT licence (LICENSE) covers the code and the documentation written for this project.
+Third-party material keeps its own terms:
+- data/sipora_2022_sector_scatter_counts.csv is derived from ERA5 (CC BY 4.0;
+  attribution and modifications in data/README.md);
+- the equations transcribed in docs/zheng2019_equations.md and the values read from
+  published figures in docs/rungs/ are cited to their sources (Zheng, Zhang &
+  Iglesias 2019; Zheng et al. 2019; Martins-Rivas & Mei 2009).

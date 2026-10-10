@@ -19,11 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-The MIT licence covers the code and the documentation written for this project.
-Third-party material keeps its own terms:
-- data/sipora_2022_sector_scatter_counts.csv is derived from ERA5 (CC BY 4.0;
-  attribution and modifications in data/README.md);
-- the equations transcribed in docs/zheng2019_equations.md and the values read from
-  published figures in docs/rungs/ are cited to their sources (Zheng, Zhang &
-  Iglesias 2019; Zheng et al. 2019; Martins-Rivas & Mei 2009).
